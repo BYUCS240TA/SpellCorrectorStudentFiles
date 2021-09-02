@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: cmdline-driver-packaging
-        run: ./.github/workflows/zip.sh
+        run: ./scripts/zip.sh
 
       - name: make-release
         if: github.ref == 'refs/heads/main'
