@@ -11,6 +11,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: set-script-executable
+        run: chmod +x ./scripts/zip.sh
+
       - name: cmdline-driver-packaging
         run: ./scripts/zip.sh
 
