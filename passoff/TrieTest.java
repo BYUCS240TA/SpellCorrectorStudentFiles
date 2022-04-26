@@ -18,7 +18,7 @@ public class TrieTest {
 
     private static final String trieString = "baboon\ncar\ncares\ncaress";
     private static final String wrongTrieString = "baboon\ncar\ncar\ncares\ncaress";
-    private static final String FILENAME = "notsobig.txt";
+    private static final String FILENAME = "dictionaryFiles/notsobig.txt";
     private ITrie studentTrie;
     private ITrie studentTrie2;
 
@@ -117,6 +117,14 @@ public class TrieTest {
         studentTrie.add("jackblanco");
         assertNotEquals(studentTrie, studentTrie2, "Two un-equal branching tries found equal.");
         assertNotEquals(studentTrie2, studentTrie, "Two un-equal branching tries found equal.");
+
+        clearTries();
+
+        add("at");
+        studentTrie.add("cat");
+        studentTrie2.add("car");
+        add("zip");
+        assertNotEquals(studentTrie, studentTrie2, "Unequal tries with equal counts found equal.");
     }
 
     @Test
@@ -235,5 +243,10 @@ public class TrieTest {
     private void add(String word){
         studentTrie.add(word);
         studentTrie2.add(word);
+    }
+
+    private void clearTries() {
+        studentTrie = new Trie();
+        studentTrie2 = new Trie();
     }
 }
