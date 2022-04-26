@@ -117,6 +117,14 @@ public class TrieTest {
         studentTrie.add("jackblanco");
         assertNotEquals(studentTrie, studentTrie2, "Two un-equal branching tries found equal.");
         assertNotEquals(studentTrie2, studentTrie, "Two un-equal branching tries found equal.");
+
+        clearTries();
+
+        add("at");
+        studentTrie.add("cat");
+        studentTrie2.add("car");
+        add("zip");
+        assertNotEquals(studentTrie, studentTrie2, "Unequal tries with equal counts found equal.");
     }
 
     @Test
@@ -235,5 +243,10 @@ public class TrieTest {
     private void add(String word){
         studentTrie.add(word);
         studentTrie2.add(word);
+    }
+
+    private void clearTries() {
+        studentTrie = new Trie();
+        studentTrie2 = new Trie();
     }
 }
